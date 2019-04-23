@@ -4,34 +4,42 @@ body {
     background: whitesmoke;
     color: black;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-* {
-    box-sizing: border-box
-}
-
-a {
-    text-decoration: none;
-    color: #000;
+.container {
+    width: 260px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    align-items: center;
+    text-align: center;
+    background: lightGray;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 button {
     min-width: 50px;
     height: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(145, 139, 139, 0.23);
+    margin: 3px auto;
 }
 
 #reset {
     width: 160px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #txt {
-    width: 215px;
+    width: 211px;
+    border-radius: 10px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #result {
-    width: 145px;
+    width: 144px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
