@@ -2,6 +2,6 @@
 
 This is a simple raw JavaScript calculator.  
 
-![Alt Text](https://gminova.github.io/img/proj5.png)  
+![Image of Calculator Layout (https://gminova.github.io/img/proj5.jpg)  
 
 ### Copyright 2019 G.Minova
