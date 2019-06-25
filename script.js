@@ -19,16 +19,16 @@ for (let id = 0; id <= 9; id++){
 var apply = function(value) {
     if (value != undefined) {
         if (lastOp == "plus") {
-            stored = parseFloat(stored+value).toPrecision(6);
+            stored = parseFloat(stored+value);
         }
         else if (lastOp == "minus") {
-            stored = parseFloat(stored-value).toPrecision(6);
+            stored = parseFloat(stored-value);
         }
         else if (lastOp == "multiply") {
-            stored = parseFloat(stored*value).toPrecision(6);
+            stored = parseFloat(stored*value);
         }
         else if (lastOp == "divide") {
-            stored = parseFloat(stored/value).toPrecision(6);
+            stored = parseFloat(stored/value);
         }
         result.value = stored.toString(); 
     }
