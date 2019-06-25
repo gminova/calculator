@@ -19,16 +19,16 @@ for (let id = 0; id <= 9; id++){
 var apply = function(value) {
     if (value != undefined) {
         if (lastOp == "plus") {
-            stored += value;
+            stored = parseFloat(stored+value).toPrecision(6);
         }
         else if (lastOp == "minus") {
-            stored -= value;
+            stored = parseFloat(stored-value).toPrecision(6);
         }
         else if (lastOp == "multiply") {
-            stored *= value;
+            stored = parseFloat(stored*value).toPrecision(6);
         }
         else if (lastOp == "divide") {
-            stored /= value;
+            stored = parseFloat(stored/value).toPrecision(6);
         }
         result.value = stored.toString(); 
     }
@@ -62,7 +62,7 @@ var equals = document.getElementById("equals");
 equals.onclick = function () {
     apply(Number(txt.value)); 
     txt.value = "";
-    stored = undefined;
+    // stored = undefined;
     lastOp = undefined;
 }
 
