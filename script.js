@@ -51,10 +51,10 @@ operations.forEach(op => {
     }
 });
 
-var dot = document.getElementById("dot");
-dot.onclick = function () {
+var decimal = document.getElementById("decimal");
+decimal.onclick = function () {
     if (txt.value.indexOf('.') == -1) {
-        txt.value += ".";
+        txt.value += decimal.value;
     }
 }
 
