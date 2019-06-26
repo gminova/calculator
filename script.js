@@ -1,22 +1,22 @@
-var txt = document.getElementById'result');
-var result = document.getElementById('display');
-var reset = document.getElementById("reset");
-var negate = document.getElementById("negate");
+let output = document.getElementById('result');
+let result = document.getElementById('display');
+let clear = document.getElementById("clear");
+let negate = document.getElementById("negate");
 
-var stored = undefined;
-var lastOp = undefined;
+let stored = undefined;
+let lastOp = undefined;
 
 for (let id = 0; id <= 9; id++){
     var num = document.getElementById(id.toString());
     num.onclick = function () {
-        txt.value += id.toString();
+        output.value += id.toString();
         if (stored == undefined) {
                 result.value = "";
         }
     }
 }
 
-var apply = function(value) {
+let apply = function(value) {
     if (value != undefined) {
         if (lastOp == "plus") {
             stored = parseFloat(stored+value);
@@ -35,44 +35,44 @@ var apply = function(value) {
 
 };
 
-var operations = ["plus", "minus", "multiply", "divide"];
+let operations = ["plus", "minus", "multiply", "divide"];
 
 operations.forEach(op => {
-    var element = document.getElementById(op);
+    let element = document.getElementById(op);
     element.onclick = function () {
         if (stored == undefined) {
-            stored = Number(txt.value);
+            stored = Number(output.value);
             result.value = stored.toString(); 
         } else {
-            apply(Number(txt.value));
+            apply(Number(output.value));
         }
-        txt.value = "";
+        output.value = "";
         lastOp = op;
     }
 });
 
-var decimal = document.getElementById("decimal");
+let decimal = document.getElementById("decimal");
 decimal.onclick = function () {
-    if (txt.value.indexOf('.') == -1) {
-        txt.value += decimal.value;
+    if (output.value.indexOf('.') == -1) {
+        output.value += decimal.value;
     }
 }
 
-var equals = document.getElementById("equals");
+let equals = document.getElementById("equals");
 equals.onclick = function () {
-    apply(Number(txt.value)); 
-    txt.value = "";
+    apply(Number(output.value)); 
+    output.value = "";
     // stored = undefined;
     lastOp = undefined;
 }
 
-reset.onclick = function () {
-    txt.value = "";
+clear.onclick = function () {
+    output.value = "";
     stored = undefined;
     lastOp = undefined;
     result.value = "";
 }
 
 negate.onclick = function () {
-    txt.value = -Number(txt.value);
+    output.value = -Number(output.value);
 }
