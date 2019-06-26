@@ -7,7 +7,7 @@ let stored = undefined;
 let lastOp = undefined;
 
 for (let id = 0; id <= 9; id++){
-    var num = document.getElementById(id.toString());
+    let num = document.getElementById(id.toString());
     num.onclick = function () {
         output.value += id.toString();
         if (stored == undefined) {
