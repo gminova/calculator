@@ -1,4 +1,4 @@
-var txt = document.getElementById("txt");
+var txt = document.getElementById'result');
 var result = document.getElementById('display');
 var reset = document.getElementById("reset");
 var negate = document.getElementById("negate");
