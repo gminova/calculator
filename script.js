@@ -1,5 +1,5 @@
 var txt = document.getElementById("txt");
-var result = document.getElementById("result");
+var result = document.getElementById('display');
 var reset = document.getElementById("reset");
 var negate = document.getElementById("negate");
 
