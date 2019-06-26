@@ -18,10 +18,10 @@ for (let id = 0; id <= 9; id++){
 
 let apply = function(value) {
     if (value != undefined) {
-        if (lastOp == "plus") {
+        if (lastOp == "add") {
             stored = parseFloat(stored+value);
         }
-        else if (lastOp == "minus") {
+        else if (lastOp == "subtract") {
             stored = parseFloat(stored-value);
         }
         else if (lastOp == "multiply") {
@@ -35,7 +35,7 @@ let apply = function(value) {
 
 };
 
-let operations = ["plus", "minus", "multiply", "divide"];
+let operations = ["add", "subtract", "multiply", "divide"];
 
 operations.forEach(op => {
     let element = document.getElementById(op);
