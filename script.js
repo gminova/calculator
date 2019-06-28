@@ -53,7 +53,7 @@ operations.forEach(op => {
 
 let decimal = document.getElementById("decimal");
 decimal.onclick = function () {
-    if (output.value.indexOf('.') == -1) {
+    if (output.value.indexOf(decimal.value) == -1) {
         output.value += decimal.value;
     }
 }
