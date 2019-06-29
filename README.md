@@ -1,7 +1,5 @@
 # Website => https://gminova.github.io/calculator
 
-This is a simple raw JavaScript calculator.  
-
-![Image of Calculator Layout](https://gminova.github.io/img/proj5.jpg)  
+This is a simple Vanilla JavaScript calculator without using eval().  
 
 ### Copyright 2019 G.Minova
