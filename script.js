@@ -2,19 +2,36 @@ let output = document.getElementById('result');
 let result = document.getElementById('display');
 let clear = document.getElementById("clear");
 let negate = document.getElementById("negate");
+let zero = document.getElementById("0");
 
 let stored = undefined;
 let lastOp = undefined;
 
+function lockDigitsOneToNine() {
+    for (let id = 1; id <= 9; id++) {
+        let num = document.getElementById(id.toString());
+        num.disabled = true;
+    }
+}
+
+function unlockDigitsOneToNine() {
+    for (let id = 1; id <= 9; id++) {
+        let num = document.getElementById(id.toString());
+        num.disabled = false;
+    }
+}
+
 for (let id = 0; id <= 9; id++) {
     let num = document.getElementById(id.toString());
     num.onclick = function () {
+        decimal.disabled = false;
         if (id == 0 && output.value == '') {
             num.disabled = true;
+            lockDigitsOneToNine();
         }
         output.value += id.toString();
         if (stored == undefined) {
-            result.value = "";
+            result.value = "0";
         }
     }
 }
@@ -53,10 +70,13 @@ operations.forEach(op => {
 
 let decimal = document.getElementById("decimal");
 decimal.onclick = function () {
-    if (output.value.indexOf(decimal.value) == -1) {
-        output.value += decimal.value;
-        let zero = document.getElementById('0');
+        unlockDigitsOneToNine();
         zero.disabled = false;
+    if (output.value == '') {
+        output.value += '0.';
+    }
+    if (output.value == '0') {
+        output.value += '.';
     }
 }
 
@@ -72,7 +92,9 @@ clear.onclick = function () {
     output.value = "";
     stored = undefined;
     lastOp = undefined;
-    result.value = "";
+    result.value = "0";
+    let zero = document.getElementById('0');
+    zero.disabled = false;
 }
 
 negate.onclick = function () {
