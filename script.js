@@ -95,6 +95,7 @@ clear.onclick = function () {
     result.value = "0";
     let zero = document.getElementById('0');
     zero.disabled = false;
+    decimal.disabled = false;
 }
 
 negate.onclick = function () {
