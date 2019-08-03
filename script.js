@@ -1,37 +1,18 @@
-let output = document.getElementById('result');
+let txt = document.getElementById('result');
 let result = document.getElementById('display');
 let clear = document.getElementById("clear");
 let negate = document.getElementById("negate");
-let zero = document.getElementById("0");
+let decimal = document.getElementById("decimal");
 
 let stored = undefined;
 let lastOp = undefined;
 
-function lockDigitsOneToNine() {
-    for (let id = 1; id <= 9; id++) {
-        let num = document.getElementById(id.toString());
-        num.disabled = true;
-    }
-}
-
-function unlockDigitsOneToNine() {
-    for (let id = 1; id <= 9; id++) {
-        let num = document.getElementById(id.toString());
-        num.disabled = false;
-    }
-}
-
 for (let id = 0; id <= 9; id++) {
     let num = document.getElementById(id.toString());
     num.onclick = function () {
-        decimal.disabled = false;
-        if (id == 0 && output.value == '') {
-            num.disabled = true;
-            lockDigitsOneToNine();
-        }
-        output.value += id.toString();
+        txt.value += id.toString();
         if (stored == undefined) {
-            result.value = "0";
+                result.value = "";
         }
     }
 }
@@ -58,46 +39,36 @@ operations.forEach(op => {
     let element = document.getElementById(op);
     element.onclick = function () {
         if (stored == undefined) {
-            stored = Number(output.value);
+            stored = Number(txt.value);
             result.value = stored.toString();
         } else {
-            apply(Number(output.value));
+            apply(Number(txt.value));
         }
-        output.value = "";
+        txt.value = "";
         lastOp = op;
     }
 });
 
-let decimal = document.getElementById("decimal");
 decimal.onclick = function () {
-        unlockDigitsOneToNine();
-        zero.disabled = false;
-    if (output.value == '') {
-        output.value += '0.';
-    }
-    if (output.value == '0') {
-        output.value += '.';
+    if (txt.value.indexOf('.') == -1) {
+        txt.value += ".";
     }
 }
 
 let equals = document.getElementById("equals");
 equals.onclick = function () {
-    apply(Number(output.value));
-    output.value = "";
-    // stored = undefined;
+    apply(Number(txt.value));
+    txt.value = "";
     lastOp = undefined;
 }
 
 clear.onclick = function () {
-    output.value = "";
+    txt.value = "";
     stored = undefined;
     lastOp = undefined;
     result.value = "0";
-    let zero = document.getElementById('0');
-    zero.disabled = false;
-    decimal.disabled = false;
 }
 
 negate.onclick = function () {
-    output.value = -Number(output.value);
+    txt.value = -Number(txt.value);
 }
